@@ -1,29 +1,10 @@
-<?php 
+<?php
+//actiontheme.com
+//github.com/ryanve/subaction
+//codex.wordpress.org/Child_Themes
 
-# @link actiontheme.com
-# @link codex.wordpress.org/Child_Themes
-
-# Most customizations can be made via action/filter hooks. 
-# Use this file to add or remove actions/filters. It is also 
-# possible to override parent theme files by copying them into 
-# this folder and editing them here. For example, if you put a
-# file here called branding.php, it will override the parent 
-# theme's branding.php file.
-
-# @link codex.wordpress.org/Plugin_API#Actions
-# @link codex.wordpress.org/Plugin_API#Filters
-# @link codex.wordpress.org/Plugin_API/Action_Reference
-
-# Apply customizations inside a "theme setup" function:
+# Apply customizations inside a "theme setup" function.
 is_admin() or add_action('after_setup_theme', function() {
-    
-    # Key Functions
-    # @link codex.wordpress.org/Function_Reference/add_action
-    # @link codex.wordpress.org/Function_Reference/add_filter
-    # @link codex.wordpress.org/Function_Reference/wp_enqueue_style
-    # @link codex.wordpress.org/Function_Reference/wp_enqueue_script
-    
-    # Starter Actions
 
     # CSS
     # handle, uri, deps, ver, media
@@ -37,7 +18,7 @@ is_admin() or add_action('after_setup_theme', function() {
         $dependencies = array('parent-base');
         wp_enqueue_style('child-style', get_stylesheet_uri(), $dependencies, null, 'screen,projection');
 
-    }, 20); # << wait until parent theme styles are registered
+    }, 20); # wait until parent theme styles are registered
     
     # JavaScript
     # handle, uri, deps, ver, in_footer
@@ -51,7 +32,7 @@ is_admin() or add_action('after_setup_theme', function() {
         // $uri = trailingslashit(get_stylesheet_directory_uri()) . 'js/example-plugin.js';
         // wp_enqueue_script('example-plugin', $uri, array('jquery'), null, true);
         
-    }, 1); # << prioritize early to ensure position in queue
+    }, 1); # prioritize early to ensure position in queue
 
 });
 
